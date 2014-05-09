@@ -9,11 +9,11 @@ import java.util.Scanner;
  */
 public class Game {
     String playerName;
-    String instructions = "Este es el fabuloso juego \"Cuatro en Linea\".\n\n"
-            + "Usted estara jugando contra la computadora o contra otro jugador.\n"
-            + "El objetivo de este juego es colocar cuatro de tus fichas en una\n"
-            + "linea, bien sea horizontal, vertical o diagonalmente.\n"
-            + "Buena Suerte!!! y disfruta de este entretenido y retante juego.\n";
+    String instructions = "This is the fabulous game \"Four in a Line\".\n\n"
+            + "You will be playing against the computer or against another player.\n"
+            + "The objective of this game is to place four of your chips in a \n"
+            + "line, either horizontally, vertically or diagonally.\n"
+            + "Good Luck! and enjoy this fun and challenging game.\n";
     
     //Sound.BACK.loop();
     
