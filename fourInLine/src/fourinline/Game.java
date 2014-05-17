@@ -1,6 +1,7 @@
 package fourinline;
 
 //import java.util.Scanner;
+import java.io.IOException;
 import javax.swing.*;
 
 
@@ -20,15 +21,9 @@ public class Game {
     int gamesLost;
     int gamesTies;
     double gamePercent;
-    
-    /*
-     * @param args the command line arguments
-     */
-    public Game(){
-        
-    }
+      
 
-    public void getName(){
+    public void getName() throws IOException{
         
         playerName = JOptionPane.showInputDialog(null,"Enter your name to start playing", "User Name", JOptionPane.QUESTION_MESSAGE); 
         /*
@@ -40,7 +35,7 @@ public class Game {
         displayGretting();
     }
     
-    public void displayGretting() {
+    public void displayGretting() throws IOException {
         
         JOptionPane.showMessageDialog(null, instructions, "Welcome " + playerName, JOptionPane.PLAIN_MESSAGE);
         
@@ -48,8 +43,33 @@ public class Game {
                 this.playerName +"!\n");        //Msj de Bienvenida
         System.out.println(this.instructions);  //Instrucciones*/
         
+        musicStatus();
+    }
+
+    public void musicStatus() throws IOException {
+
+        char musicOnOff;
+
+        System.out.println("Music Option :"); 
+        System.out.println("Do you want hear the background music?");
+        System.out.println("    1. Yes");
+        System.out.println("    2. No");
+        System.out.println("Choose on");
+        musicOnOff = (char) System.in.read();
+
+        switch (musicOnOff) {
+            case '1':
+                Sound.BACK.loop();
+                break;
+            case '2':
+		Sound.BACK.stop();
+                break;
+            default:
+                System.out.print("Selection not found.");
+        }
         computeScore();
     }
+
     
     public void computeScore(){
         gamesWon =4;
@@ -76,7 +96,7 @@ public class Game {
     }
     
       
-    public static void main(String[] args) {   
+    public static void main(String[] args) throws IOException {   
         Game myGame = new Game();   //Construye un objeto
         myGame.getName();           //Llama a la funcion getName
         //myGame.displayGretting();   //Llama a la funcion displayHelp
