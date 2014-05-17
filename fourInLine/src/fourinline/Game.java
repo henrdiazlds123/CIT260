@@ -1,6 +1,7 @@
 package fourinline;
 
-import java.util.Scanner;
+//import java.util.Scanner;
+import javax.swing.*;
 
 
 /**
@@ -23,24 +24,38 @@ public class Game {
     /*
      * @param args the command line arguments
      */
+    public Game(){
+        
+    }
 
     public void getName(){
         
+        playerName = JOptionPane.showInputDialog(null,"Enter your name to start playing", "User Name", JOptionPane.QUESTION_MESSAGE); 
+        /*
         Scanner input = new Scanner(System.in);
         System.out.println("Enter your name: ");//Pregunta el nombre del jugador
         this.playerName = input.nextLine();     //Asigna la entrada a la variable playerName
+        */
+        //Ejecuta la siguiente instruccion.
+        displayGretting();
     }
     
-    public void displayHelp() {
-        System.out.println("\nWelcome " + 
+    public void displayGretting() {
+        
+        JOptionPane.showMessageDialog(null, instructions, "Welcome " + playerName, JOptionPane.PLAIN_MESSAGE);
+        
+        /*System.out.println("\nWelcome " + 
                 this.playerName +"!\n");        //Msj de Bienvenida
-        System.out.println(this.instructions);  //Instrucciones
+        System.out.println(this.instructions);  //Instrucciones*/
+        
+        computeScore();
     }
     
     public void computeScore(){
-        gamesWon = 0;
+        gamesWon =4;
         gamesLost = 3;
         gamesTies = 2;
+        
         gamesPlayed = gamesWon + gamesLost + gamesTies;
         
         if (gamesPlayed == 0)
@@ -64,7 +79,8 @@ public class Game {
     public static void main(String[] args) {   
         Game myGame = new Game();   //Construye un objeto
         myGame.getName();           //Llama a la funcion getName
-        //myGame.displayHelp();       //Llama a la funcion displayHelp
-        myGame.computeScore();      //Llama a la funcion que muestra estadistica del juego
+        //myGame.displayGretting();   //Llama a la funcion displayHelp
+        //myGame.computeScore();      //Llama a la funcion que muestra estadistica del juego
+        
     }
 }
